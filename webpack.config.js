@@ -82,6 +82,13 @@ const plugins = [
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
     }),
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery",
+        _: "underscore",
+        React: "react",
+    }),
 ];
 
 if (!slim) {
