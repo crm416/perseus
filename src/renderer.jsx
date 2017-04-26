@@ -257,10 +257,14 @@ var Renderer = React.createClass({
         var oldHighlightedWidgets = this.props.highlightedWidgets;
         var newHighlightedWidgets = nextProps.highlightedWidgets;
 
+        const oldFilter = this.props.apiOptions.filterUnpinnedNodes;
+        const newFilter = nextProps.apiOptions.filterUnpinnedNodes;
+
         // TODO(jared): This seems to be a perfect overlap with
         // "shouldComponentUpdate" -- can we just remove this
         // componentWillUpdate and the reuseMarkdown attr?
         this.reuseMarkdown = !oldJipt && !newJipt &&
+            oldFilter === newFilter &&
             oldContent === newContent &&
                 // yes, this is identity array comparison, but these are passed
                 // in from state in the item-renderer, so they should be
@@ -761,6 +765,7 @@ var Renderer = React.createClass({
                 className={className}
                 translationIndex={this.translationIndex}
                 paragraphIndex={state.paragraphIndex}
+                apiOptions={this.getApiOptions()}
             >
                 {output}
             </QuestionParagraph>;

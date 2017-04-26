@@ -127,6 +127,17 @@ module.exports = {
             },
             setDrawingAreaAvailable: function() { },
             useDraftEditor: true,
+
+            // HACK(charlie): Remove these. They're only here to power the
+            // checklist prototype.
+            enablePinning: false,
+            filterUnpinnedNodes: false,
+            onPinChange: function(pinned) {},
+            pinColors: {
+                hover: '#63d9ea',
+                active: '#11accd',
+                default: '#d6d8da',
+            },
         },
     },
     ClassNames: {
