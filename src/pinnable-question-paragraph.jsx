@@ -275,6 +275,13 @@ const PinnableQuestionParagraph = React.createClass({
                     ...(filterUnpinnedNodes && !pinned
                         ? { display: "none" }
                         : {}),
+                    // This is gray98 on-hover.
+                    // NOTE(charlie): This is super rough. It doesn't extend to
+                    // include the bookmark icon, and doesn't span the width of
+                    // the page, as we'd like it to -- instead, it's confined
+                    // to the exact width of the content. Good enough for a
+                    // prototype.
+                    ...(hovered ? { backgroundColor: "#FAFAFA" } : {}),
                 }}
                 className={className}
                 data-perseus-component-index={this.props.translationIndex}
