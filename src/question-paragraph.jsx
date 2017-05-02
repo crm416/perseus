@@ -8,9 +8,7 @@ const PinnableQuestionParagraph = require('./pinnable-question-paragraph.jsx');
 
 var QuestionParagraph = React.createClass({
     render: function() {
-        const {enablePinning} = this.props.apiOptions;
-
-        if (enablePinning) {
+        if (this.props.apiOptions && this.props.apiOptions.enablePinning) {
             return <PinnableQuestionParagraph {...this.props} />;
         }
 

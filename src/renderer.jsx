@@ -257,8 +257,12 @@ var Renderer = React.createClass({
         var oldHighlightedWidgets = this.props.highlightedWidgets;
         var newHighlightedWidgets = nextProps.highlightedWidgets;
 
-        const oldFilter = this.props.apiOptions.filterUnpinnedNodes;
-        const newFilter = nextProps.apiOptions.filterUnpinnedNodes;
+        const oldFilter = this.props.apiOptions != null
+            ? this.props.apiOptions.filterUnpinnedNodes
+            : false;
+        const newFilter = nextProps.apiOptions != null
+            ? nextProps.apiOptions.filterUnpinnedNodes
+            : false;
 
         // TODO(jared): This seems to be a perfect overlap with
         // "shouldComponentUpdate" -- can we just remove this
